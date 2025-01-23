@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "firstName": "Wojciech",
+      "lastName": "Lech",
+      "username": "wojciech",
+      "password": "wojciech@123",
+      "email": "wojciech@hyland.com",
+      "phone": 7418529630,
+      "dateofBirth": "1982/01/24",
+      "id": "2c7e"
+    },
+    {
+      "firstName": "Kaushik",
+      "lastName": "Natua",
+      "username": "kaushik",
+      "password": "kaushik@123",
+      "email": "kaushik.natua@hyland.com",
+      "phone": 9638527410,
+      "dateofBirth": "1987/03/06",
+      "id": "f8dd"
+    },
+    {
+      "id": "0780",
+      "firstName": "Rajdipta",
+      "lastName": "Biswas",
+      "username": "rajdipta",
+      "password": "raj@345",
+      "email": "rajdipta@hyland.com",
+      "phone": 8527419870,
+      "dateofBirth": "1980-02-12"
+    },
+    {
+      "id": "e31b",
+      "firstName": "Ania",
+      "lastName": "Byrk",
+      "username": "ania",
+      "password": "ania@123",
+      "email": "ania@gmail.com",
+      "phone": 7531597894,
+      "dateofBirth": "1991-07-16"
+    },
+    {
+      "id": "4e1f",
+      "firstName": "Rohini",
+      "lastName": "Singh",
+      "username": "rohini",
+      "password": "rohin@123",
+      "email": "rohini@gmail.com",
+      "phone": 960074112,
+      "dateofBirth": "2019-01-29"
+    },
+    {
+      "id": "43rf",
+      "firstName": "Test",
+      "lastName": "Tester",
+      "username": "tester",
+      "password": "tester@123",
+      "email": "tester@gmail.com",
+      "phone": 5568525112,
+      "dateofBirth": "2000-02-29"
+    }
+  ]
+}

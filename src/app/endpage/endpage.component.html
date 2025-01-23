@@ -1,0 +1,58 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Dropdown Menus</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Select a make</mat-label>
+      <mat-select [(ngModel)]="selectedOption1">
+        <mat-option *ngFor="let option of carman" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select color</mat-label>
+      <mat-select [(ngModel)]="selectedOption2">
+        <mat-option *ngFor="let option of color" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select fuel type</mat-label>
+      <mat-select [(ngModel)]="selectedOption3">
+        <mat-option *ngFor="let option of fueltype" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select engine CC</mat-label>
+      <mat-select [(ngModel)]="selectedOption4">
+        <mat-option *ngFor="let option of engine" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select mileage</mat-label>
+      <mat-select [(ngModel)]="selectedOption5">
+        <mat-option *ngFor="let option of mileage" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+<div class="selected-options">
+    <div class="option1">{{selectedOption1}}</div>    
+    <div class="option2">{{selectedOption2}}</div>
+    <div class="option3">{{selectedOption3}}</div>
+    <div class="option4">{{selectedOption4}}</div>
+    <div class="option5">{{selectedOption5}}</div>
+  </div>

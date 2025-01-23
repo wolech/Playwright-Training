@@ -1,0 +1,38 @@
+.example-card {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.selected-options {
+  margin-top: 20px;
+}
+
+.selected-options div {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.option1 {
+  color: red;
+}
+
+.option2 {
+  color: black;
+}
+
+.option3 {
+  color: green;
+}
+
+.option4 {
+  color: orange;
+}
+
+.option5 {
+  color: blue;
+}
