@@ -6,7 +6,8 @@ import { test, expect } from '@playwright/test';
 // Description: Ensure that the username and password input fields are visible on the login page.
 test.describe('Login Page', () => {
   test('should display username and password fields', async ({ page }) => {
-    await page.goto('http://localhost:4200/login') 
+    page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+await page.goto('http://localhost:4200/login', { timeout: 30000 });
 // Check if the username input field is visible.
 // Check if the password input field is visible.
     const usernameField = await page.locator('input[name="name"]');
@@ -95,7 +96,7 @@ await page.goto('http://localhost:4200/login')
   const usernameField = await page.locator('input[name="name"]').fill('tester');
   const passwordField = await page.locator('input[name="password"]').fill('tester@123');
 // Submit the form.
-await page.locator('button[type=submit]').click();
+await page.locator('button[type=submit] id="button2').click();
 
   page.on('dialog', async dialog => {
     expect(dialog.message()).toContain('Login Successful');

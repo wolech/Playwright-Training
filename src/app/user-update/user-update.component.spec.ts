@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+
+
 // Test Case 1: Verify Customer Update Form Fields are Visible
 // Description: Ensure that all input fields in the customer update form are visible.
 test('should successfully log in with valid credentials', async ({ page }) => {
@@ -16,9 +18,9 @@ test('should successfully log in with valid credentials', async ({ page }) => {
     expect(dialog.message()).toContain('Login Successful');
     await dialog.dismiss();
   });
-  //await page.click('#alert-button');
-  // Page redirected to http://localhost:4200/customer-update
-await expect(page.url()).toBe('http://localhost:4200/customer-update?username=tester');
+  // await page.click('#alert-button');
+  // Page redirected to http://localhost:4200/user-update
+await expect(page.url()).toBe('http://localhost:4200/user-update?username=tester');
 
 
 // Check if the username input field is visible.
@@ -28,13 +30,13 @@ await expect(page.url()).toBe('http://localhost:4200/customer-update?username=te
 // Check if the  email input field is visible.
 // Check if the phone number input field is visible.
 // Check if the  date of birth number input field is visible.
-await page.locator('input[name="username"]');
-await page.locator('input[name="password"]');
-await page.locator('input[name="firstName"]');
-await page.locator('input[name="lastName"]');
-await page.locator('input[name="email"]');
-await page.locator('input[name="phone"]');
-await page.locator('input[name="dateofBirth"]');
+await page.getByRole('textbox', { name: 'Welcome' })
+await page.getByRole('textbox', { name: 'Password' })
+await page.getByRole('textbox', { name: 'First Name' });
+await page.getByRole('textbox', { name: 'Last Name' });
+await page.getByRole('textbox', { name: 'Email' });
+await page.getByRole('textbox', { name: 'Mobile Number' });
+await page.getByRole('textbox', { name: 'Date Of Birth' });
 // Expected Result: All input fields should be visible.
   });
 
@@ -63,17 +65,19 @@ test.describe('Missing data1', () => {
     });
 
     //empty password
-      await page.locator('input[name="password"]')
-      await page.locator('input[name="firstName"]').fill('Name');
-      await page.locator('input[name="lastName"]').fill('Lastname');
-      await page.locator('input[name="email"]').fill('something@a.a');
-      await page.locator('input[name="phone"]').fill('1234567891');
-      await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+  
+      await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+      await page.getByRole('textbox', { name: 'Last Name' }).fill("Lastname");
+      await page.getByRole('textbox', { name: 'Email' }).fill("something@a.a");
+      await page.getByRole('textbox', { name: 'Mobile Number' }).fill("1234567891");
+      await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
+
+     
 
 // Submit the form.
 
 // Expected Result: The error message "Username is required is required." should be displayed.
-    await page.locator('button[type=submit]').click();
+await page.getByRole('button', { name: 'Update' }).click();
 // Check for the error message "Username is required is required."
 const errorMessage = await page.locator('text=Password is required.');
 await expect(errorMessage).toBeVisible();
@@ -102,12 +106,11 @@ test.describe('Missing data2', () => {
     });
 
     //empty first name
-      await page.locator('input[name="password"]').fill('password');
-      await page.locator('input[name="firstName"]')
-      await page.locator('input[name="lastName"]').fill('Lastname');
-      await page.locator('input[name="email"]').fill('something@a.a');
-      await page.locator('input[name="phone"]').fill('1234567891');
-      await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+      await page.getByRole('textbox', { name: 'Password' }).fill('password');
+      await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
+      await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
+      await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
+      await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
 
 
 
@@ -141,19 +144,19 @@ test.describe('Missing data3', () => {
     });
 
     //empty password
-      await page.locator('input[name="password"]').fill('password');
-      await page.locator('input[name="firstName"]').fill('Name');
-      await page.locator('input[name="lastName"]')
-      await page.locator('input[name="email"]').fill('something@a.a');
-      await page.locator('input[name="phone"]').fill('1234567891');
-      await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+    await page.getByRole('textbox', { name: 'Password' }).fill('password');
+    await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+    
+      await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
+      await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
+      await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
 
 
 
 // Submit the form.
 
 // Expected Result: The error message "Last Name is required is required." should be displayed.
-    await page.locator('button[type=submit]').click();
+await page.locator('button[type=submit]').click();
 // Check for the error message "Last Name is required is required."
 const errorMessage = await page.locator('text=Last Name is required.');
 await expect(errorMessage).toBeVisible();
@@ -182,12 +185,12 @@ test.describe('Missing data4', () => {
     });
 
    //empty email
-   await page.locator('input[name="password"]').fill('password');
-   await page.locator('input[name="firstName"]').fill('Name');
-   await page.locator('input[name="lastName"]').fill('Lastname');
-   await page.locator('input[name="email"]')
-   await page.locator('input[name="phone"]').fill('1234567891');
-   await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+   await page.getByRole('textbox', { name: 'Password' }).fill('password');
+   await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+   await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
+
+   await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
+  await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
 
 
 
@@ -222,12 +225,12 @@ test.describe('Missing data5', () => {
     });
 
    //empty password
-   await page.locator('input[name="password"]').fill('password');
-   await page.locator('input[name="firstName"]').fill('Name');
-   await page.locator('input[name="lastName"]').fill('Lastname');
-   await page.locator('input[name="email"]').fill('something@a.a');
-   await page.locator('input[name="phone"]')
-   await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+   await page.getByRole('textbox', { name: 'Password' }).fill('password');
+   await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+   await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
+   await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
+   
+  await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
 
 
 
@@ -261,12 +264,12 @@ test.describe('Missing data6', () => {
     });
 
    //empty data
-   await page.locator('input[name="password"]').fill('password');
-   await page.locator('input[name="firstName"]').fill('Name');
-   await page.locator('input[name="lastName"]').fill('Lastname');
-   await page.locator('input[name="email"]').fill('something@a.a');
-   await page.locator('input[name="phone"]').fill('1234567891');
-await page.locator('input[name="dateofBirth"]');
+   await page.getByRole('textbox', { name: 'Password' }).fill('password');
+   await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+   await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
+   await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
+   await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
+
 
 // Submit the form.
 
@@ -296,12 +299,12 @@ test.describe('Missing data10', () => {
     });
 
    //empty password
-   await page.locator('input[name="password"]').fill('password');
-   await page.locator('input[name="firstName"]').fill('Name');
-   await page.locator('input[name="lastName"]').fill('Lastname');
-   await page.locator('input[name="email"]').fill('something@a.a');
-   await page.locator('input[name="phone"]').fill('1234567891');
-   await page.locator('input[name="dateofBirth"]').fill('1980-02-12');
+   await page.getByRole('textbox', { name: 'Password' }).fill('password');
+   await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
+   await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
+   await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
+   await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
+  await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
 
 
 
