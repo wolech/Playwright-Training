@@ -144,6 +144,7 @@ test.describe('Missing data3', () => {
     });
 
     //empty password
+
     await page.getByRole('textbox', { name: 'Password' }).fill('password');
     await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
     
@@ -156,7 +157,8 @@ test.describe('Missing data3', () => {
 // Submit the form.
 
 // Expected Result: The error message "Last Name is required is required." should be displayed.
-await page.locator('button[type=submit]').click();
+await page.getByRole('button', { name: 'Update' }).click();
+
 // Check for the error message "Last Name is required is required."
 const errorMessage = await page.locator('text=Last Name is required.');
 await expect(errorMessage).toBeVisible();
@@ -319,3 +321,7 @@ test.describe('Missing data10', () => {
     });
   });
 });
+function getByRole(arg0: string, arg1: { name: string; }) {
+  throw new Error('Function not implemented.');
+}
+
