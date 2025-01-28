@@ -12,7 +12,7 @@ test('should successfully log in with valid credentials', async ({ page }) => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
   // Submit the form.
-  await page.locator('button[type=submit]').click();
+  await page.locator('button[type=login]').click();
 
   page.on('dialog', async dialog => {
     expect(dialog.message()).toContain('Login Successful');
@@ -51,18 +51,23 @@ await page.getByRole('textbox', { name: 'Date Of Birth' });
 test.describe('Missing data1', () => {
   test('login', async ({ page }) => {
     // Navigate to the login page.
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toContain('Login Successful');
+      await dialog.dismiss();
+    });
+
     await page.goto('http://localhost:4200/login') 
     // Fill in the username field with a valid username.
     // Fill in the password field with a valid password.
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
-    page.on('dialog', async dialog => {
-      expect(dialog.message()).toContain('Login Successful');
-      await dialog.dismiss();
-    });
+    // page.on('dialog', async dialog => {
+    //   expect(dialog.message()).toContain('Login Successful');
+    //   await dialog.dismiss();
+    // });
 
     //empty password
   
@@ -98,7 +103,7 @@ test.describe('Missing data2', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');
@@ -111,14 +116,15 @@ test.describe('Missing data2', () => {
       await page.getByRole('textbox', { name: 'Email' }).fill('something@a.a');
       await page.getByRole('textbox', { name: 'Mobile Number' }).fill('1234567891');
       await page.getByRole('textbox', { name: 'Date Of Birth' }).fill("1982-03-12");
+      await page.getByRole('textbox', { name: 'First Name' }).fill('');
 
 
 
 // Submit the form.
 
-// Expected Result: The error message "UFirst Name is required is required." should be displayed.
+// Expected Result: The error message "First Name is required." should be displayed.
     await page.locator('button[type=submit]').click();
-// Check for the error message "First Name is required is required."
+// Check for the error message "First Name is required 
 const errorMessage = await page.locator('text=First Name is required.');
 await expect(errorMessage).toBeVisible();
 });
@@ -136,7 +142,7 @@ test.describe('Missing data3', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');
@@ -179,7 +185,7 @@ test.describe('Missing data4', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');
@@ -219,7 +225,7 @@ test.describe('Missing data5', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');
@@ -258,7 +264,7 @@ test.describe('Missing data6', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');
@@ -293,7 +299,7 @@ test.describe('Missing data10', () => {
     const usernameField = await page.locator('input[name="name"]').fill('tester');
     const passwordField = await page.locator('input[name="password"]').fill('tester@123');
     // Submit the form.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 
     page.on('dialog', async dialog => {
       expect(dialog.message()).toContain('Login Successful');

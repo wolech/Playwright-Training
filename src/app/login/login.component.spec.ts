@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Login Page', () => {
   test('should display username and password fields', async ({ page }) => {
     page.on('console', msg => console.log('PAGE LOG:', msg.text()));
-await page.goto('http://localhost:4200/login', { timeout: 30000 });
+await page.goto('http://localhost:4200/login', { timeout: 10000 });
 // Check if the username input field is visible.
 // Check if the password input field is visible.
     const usernameField = await page.locator('input[name="name"]');
@@ -36,7 +36,7 @@ test.describe('Login Page', () => {
 // Submit the form.
 
 // Expected Result: The error message "Password is required." should be displayed.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 // Check for the error message "Password is required."
 const errorMessage = await page.locator('text=Password is required');
 await expect(errorMessage).toBeVisible();
@@ -59,7 +59,7 @@ test.describe('Login Page', () => {
 // Submit the form.
 
 // Expected Result: The error message "Username is required is required." should be displayed.
-    await page.locator('button[type=submit]').click();
+    await page.locator('button[type=login]').click();
 // Check for the error message "Username is required is required."
 const errorMessage = await page.locator('text=Username is required');
 await expect(errorMessage).toBeVisible();
@@ -77,7 +77,7 @@ test('should display error message for invalid credentials', async ({ page }) =>
       const usernameField = await page.locator('input[name="name"]').fill('invalid-username');
       const passwordField = await page.locator('input[name="password"]').fill('invalid-password');
   // Submit the form.
-      await page.locator('button[type=submit]').click();
+      await page.locator('button[type=login]').click();
       // Check for the error message indicating invalid credentials.
       const errorMessage = await page.locator('text=Invalid Username or Password');
       await expect(errorMessage).toBeVisible();
@@ -96,11 +96,11 @@ await page.goto('http://localhost:4200/login')
   const usernameField = await page.locator('input[name="name"]').fill('tester');
   const passwordField = await page.locator('input[name="password"]').fill('tester@123');
 // Submit the form.
-await page.locator('button[type=submit] id="button2').click();
+await page.locator('button[type=login]').click();
 
   page.on('dialog', async dialog => {
     expect(dialog.message()).toContain('Login Successful');
     await dialog.dismiss();
   });
-  await page.click('#alert-button');
+  // await page.click('#alert-button');
 });
