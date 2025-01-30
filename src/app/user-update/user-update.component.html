@@ -60,7 +60,7 @@
       </div>
 
       <div>
-        <label for="dateofBirth">Date Of Birth</label>
+        <label for="dateofBirth">Date of Birth</label>
         <input type="date" id="dateofBirth" formControlName="dateofBirth" placeholder="MM/dd/YYYY">
         <div *ngIf="userForm.get('dateofBirth')?.invalid && userForm.get('dateofBirth')?.touched">
           <p style="color: red;" *ngIf="userForm.get('dateofBirth')?.errors?.['required']">Date of Birtg is required.</p>

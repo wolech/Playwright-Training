@@ -1,23 +1,37 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { test, expect } from '@playwright/test';
 
-import { EndpageComponent } from './endpage.component';
+// Test Case 1: Successfull login befor each
 
-describe('EndpageComponent', () => {
-  let component: EndpageComponent;
-  let fixture: ComponentFixture<EndpageComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [EndpageComponent]
-    })
-    .compileComponents();
+test.describe('Successfull login', () => {
+  test.beforeEach('login', async ({ page }) => {
+    // Navigate to the login page.
+    await page.goto('http://localhost:4200') 
+    // Fill in the username field with a valid username.
+    // Fill in the password field with a valid password.
+    const usernameField = await page.locator('input[name="name"]').fill('tester');
+    const passwordField = await page.locator('input[name="password"]').fill('tester@123');
+    // Submit the form.
+    await page.locator('button[type=login]').click();
 
-    fixture = TestBed.createComponent(EndpageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+// Expected Result: The error message "In future we will update the user data" should be displayed.
+await page.waitForURL('http://localhost:4200/user-update?username=tester');
+
+// Verify the URL contains the query parameters
+await expect(page.url()).toBe('http://localhost:4200/user-update?username=tester');
+
+// Submit the form.
+await page.locator('button[type=submit]').click();
+    });
+// TEST 2 - display of all selection boxes
+    test('should display all selection boxes', async ({ page }) => {
+      // Check for the success message.
+      
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  test('should display all selection boxes', async ({ page }) => {
+    // Check for the success message.
+
   });
 });
