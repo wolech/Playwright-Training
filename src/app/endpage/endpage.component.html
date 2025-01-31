@@ -5,7 +5,7 @@
   <mat-card-content>
     <mat-form-field appearance="fill">
       <mat-label>Select a make</mat-label>
-      <mat-select [(ngModel)]="selectedOption1">
+      <mat-select [(ngModel)]="Carmake01">
         <mat-option *ngFor="let option of carman" [value]="option">
           {{ option }}
         </mat-option>
@@ -14,7 +14,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Select color</mat-label>
-      <mat-select [(ngModel)]="selectedOption2">
+      <mat-select [(ngModel)]="Carcolor2">
         <mat-option *ngFor="let option of color" [value]="option">
           {{ option }}
         </mat-option>
@@ -23,7 +23,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Select fuel type</mat-label>
-      <mat-select [(ngModel)]="selectedOption3">
+      <mat-select [(ngModel)]="Fueltype3">
         <mat-option *ngFor="let option of fueltype" [value]="option">
           {{ option }}
         </mat-option>
@@ -32,7 +32,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Select engine CC</mat-label>
-      <mat-select [(ngModel)]="selectedOption4">
+      <mat-select [(ngModel)]="Capacity4">
         <mat-option *ngFor="let option of engine" [value]="option">
           {{ option }}
         </mat-option>
@@ -41,7 +41,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Select mileage</mat-label>
-      <mat-select [(ngModel)]="selectedOption5">
+      <mat-select [(ngModel)]="Mileage5">
         <mat-option *ngFor="let option of mileage" [value]="option">
           {{ option }}
         </mat-option>
@@ -50,9 +50,9 @@
   </mat-card-content>
 </mat-card>
 <div class="selected-options">
-    <div class="option1">{{selectedOption1}}</div>    
-    <div class="option2">{{selectedOption2}}</div>
-    <div class="option3">{{selectedOption3}}</div>
-    <div class="option4">{{selectedOption4}}</div>
-    <div class="option5">{{selectedOption5}}</div>
+    <div class="option1">{{Carmake01}}</div>    
+    <div class="option2">{{Carcolor2}}</div>
+    <div class="option3">{{Fueltype3}}</div>
+    <div class="option4">{{Capacity4}}</div>
+    <div class="option5">{{Mileage5}}</div>
   </div>

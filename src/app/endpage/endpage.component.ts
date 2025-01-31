@@ -15,13 +15,13 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
   imports: [CommonModule, MatSelectModule, FormsModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatCardModule],
 })
 export class EndpageComponent {
-  selectedOption1!: string;
-  selectedOption2!: string;
-  selectedOption3!: string;
-  selectedOption4!: string;
-  selectedOption5!: string;
+  Carmake01!: string;
+  Carcolor2!: string;
+  Fueltype3!: string;
+  Capacity4!: string;
+  Mileage5!: string;
   carman: string[] = ['Renault', 'BMW', 'Skoda'];
-  color: string[] = ['Red', 'Blue', 'Green'];
+  color: string[] = ['Red', 'Blue', 'Green', 'Black', 'White'];
   fueltype: string[] = ['Petrol', 'Diesel', 'Electric'];
   engine: string[] = ['1.0', '1.5', '2.0'];
   mileage: string[] = ['<=100K', '100K - 200K', '>200K'];
