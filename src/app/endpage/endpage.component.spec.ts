@@ -55,5 +55,6 @@ const expectedOptions = ['Renault', 'BMW', 'Skoda'];
 
 });
 
-    // TEST 2 - display of all selection boxes
+    // TEST 2 - display of all selection boxes   
+    // Test 3 - check all available option combinations in dropdowns
     
