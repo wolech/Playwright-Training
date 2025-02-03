@@ -1,17 +1,17 @@
-// Test Cases:
-
+import { LoginPage }   from '../Pages/login.page';
 import { test, expect } from '@playwright/test';
 
 // Test Case 1: Verify Username and Password Fields are Visible
 // Description: Ensure that the username and password input fields are visible on the login page.
 test.describe('Login Page', () => {
   test('should display username and password fields', async ({ page }) => {
+    const loginPage = new LoginPage(page);
     page.on('console', msg => console.log('PAGE LOG:', msg.text()));
 await page.goto('http://localhost:4200/login', { timeout: 10000 });
 // Check if the username input field is visible.
 // Check if the password input field is visible.
-    const usernameField = await page.locator('input[name="name"]');
-    const passwordField = await page.locator('input[name="password"]');
+const usernameField = await LoginPage.nameInput.fill('tester');
+    const passwordField = await LoginPage.passwordInput.fill('tester@123');
 // Expected Result: Both the username and password input fields should be visible.
     await expect(usernameField).toBeVisible();
     await expect(passwordField).toBeVisible();
@@ -50,9 +50,11 @@ test.describe('Login Page', () => {
 
   // Navigate to the login page.
   test('should display error message for empty username', async ({ page }) => {
-    await page.goto('http://localhost:4200/login')
+    await page.goto('/login')
 
-    const passwordField = await page.locator('input[name="password"]').fill('invalid-password');
+    const passwordField = await LoginPage.passwordInput.fill('invalid-password');
+    
+    
 
 // Leave the username field empty.
 // Fill in the password field.
@@ -60,6 +62,7 @@ test.describe('Login Page', () => {
 
 // Expected Result: The error message "Username is required is required." should be displayed.
     await page.locator('button[type=login]').click();
+    await page.pause();
 // Check for the error message "Username is required is required."
 const errorMessage = await page.locator('text=Username is required');
 await expect(errorMessage).toBeVisible();
@@ -101,6 +104,7 @@ await page.locator('button[type=login]').click();
   page.on('dialog', async dialog => {
     expect(dialog.message()).toContain('Login Successful');
     await dialog.dismiss();
+   
   });
   // await page.click('#alert-button');
 });

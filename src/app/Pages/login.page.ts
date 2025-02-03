@@ -1,12 +1,14 @@
 import { Page } from "playwright/test";
 
-export class ContactPage {
+export class LoginPage {
 
     page: any;
     url: string;
   nameInput: any;
   passwordInput: any;
   submitButton: any;  
+  static nameInput: any;
+  static passwordInput: any;
 
 
 
@@ -16,13 +18,5 @@ export class ContactPage {
       this.nameInput = page.locator('input[name="name"]');
       this.passwordInput = page.locator('input[name="password"]');
       this.submitButton = page.locator('button[type=submit]');
-
-
     }
-
-
-
-
-
-
 }
