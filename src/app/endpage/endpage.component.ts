@@ -20,10 +20,10 @@ export class EndpageComponent {
   Fueltype3!: string;
   Capacity4!: string;
   Mileage5!: string;
-  carman: string[] = ['Renault', 'BMW', 'Skoda'];
-  color: string[] = ['Red', 'Blue', 'Green', 'Black', 'White'];
-  fueltype: string[] = ['Petrol', 'Diesel', 'Electric'];
-  engine: string[] = ['1.0', '1.5', '2.0'];
-  mileage: string[] = ['<=100K', '100K - 200K', '>200K'];
+  Carmake: string[] = ['Renault', 'BMW', 'Skoda'];
+  Carcolor: string[] = ['Red', 'Blue', 'Green', 'Black', 'White'];
+  Fueltype: string[] = ['Petrol', 'Diesel', 'Electric'];
+  Capacity: string[] = ['1.0', '1.5', '2.0'];
+  Mileage: string[] = ['<=100K', '100K - 200K', '>200K'];
 }
 

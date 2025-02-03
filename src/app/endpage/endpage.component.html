@@ -6,7 +6,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Select a make</mat-label>
       <mat-select [(ngModel)]="Carmake01">
-        <mat-option *ngFor="let option of carman" [value]="option">
+        <mat-option *ngFor="let option of Carmake" [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
@@ -15,7 +15,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Select color</mat-label>
       <mat-select [(ngModel)]="Carcolor2">
-        <mat-option *ngFor="let option of color" [value]="option">
+        <mat-option *ngFor="let option of Carcolor" [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
@@ -24,7 +24,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Select fuel type</mat-label>
       <mat-select [(ngModel)]="Fueltype3">
-        <mat-option *ngFor="let option of fueltype" [value]="option">
+        <mat-option *ngFor="let option of Fueltype" [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
@@ -33,7 +33,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Select engine CC</mat-label>
       <mat-select [(ngModel)]="Capacity4">
-        <mat-option *ngFor="let option of engine" [value]="option">
+        <mat-option *ngFor="let option of Capacity" [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
@@ -42,7 +42,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Select mileage</mat-label>
       <mat-select [(ngModel)]="Mileage5">
-        <mat-option *ngFor="let option of mileage" [value]="option">
+        <mat-option *ngFor="let option of Mileage" [value]="option">
           {{ option }}
         </mat-option>
       </mat-select>
