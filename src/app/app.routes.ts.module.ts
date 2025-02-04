@@ -5,16 +5,13 @@ import { CustomerUpdateComponent } from './user-update/user-update.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'customer-update', component: CustomerUpdateComponent }
+    { path: '', component: AppComponent },
+    { path: 'customer-update', component: CustomerUpdateComponent },
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+    declarations: [],
+    imports: [CommonModule, RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

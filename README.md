@@ -3,11 +3,14 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
 # we are creating a mock json database server here for CRUD work. Follow the below steps to install and run Json Server
-## First install json server using the command: npm i -g json-server
-## Next to run the json server use the command: json-server --watch src\app\userdb.json
-### Note: userdb.json is the local json file we have created under the project to store user data
-### Important: Do not close the json data browser while running your project, else data will not run
 
+## First install json server using the command: npm i -g json-server
+
+## Next to run the json server use the command: json-server --watch src\app\userdb.json
+
+### Note: userdb.json is the local json file we have created under the project to store user data
+
+### Important: Do not close the json data browser while running your project, else data will not run
 
 ## Development server
 
