@@ -9,7 +9,7 @@ export class ContactPage {
 
     constructor(page: any) {
         this.page = page;
-        this.url = 'http://localhost:4200/';
+        this.url = '/endpage';
         // this.nameInput = page.locator('input[name="name"]');
         // this.passwordInput = page.locator('input[name="password"]');
         this.submitButton = page.locator('button[type=submit]');

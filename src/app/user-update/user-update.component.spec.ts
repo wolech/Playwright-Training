@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 // Test Case 1: Verify Customer Update Form Fields are Visible
 // Description: Ensure that all input fields in the customer update form are visible.
+test
 test('should successfully log in with valid credentials', async ({ page }) => {
     // Navigate to the login page.
     await page.goto('http://localhost:4200/login');
@@ -77,8 +78,7 @@ test.describe('Missing data1', () => {
         await page.getByRole('textbox', { name: 'Password' }).fill('');
         await page.getByRole('textbox', { name: 'First Name' }).fill('Testino');
         await page.getByRole('textbox', { name: 'Last Name' }).fill('Lastname');
-        await page
-            .getByRole('textbox', { name: 'Email' })
+        await page.getByRole('textbox', { name: 'Email' })
             .fill('something@a.a');
         await page
             .getByRole('textbox', { name: 'Mobile Number' })

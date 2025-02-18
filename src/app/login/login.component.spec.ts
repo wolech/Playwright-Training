@@ -1,18 +1,19 @@
-import { LoginPage } from '../Pages/login.page';
+// import { LoginPage } from '../Pages/login.page';
 import { test, expect } from '@playwright/test';
 
 // Test Case 1: Verify Username and Password Fields are Visible
 // Description: Ensure that the username and password input fields are visible on the login page.
 test.describe('Login Page', () => {
     test('should display username and password fields', async ({ page }) => {
-        const loginPage = new LoginPage(page);
+        // const loginPage = new LoginPage(page);
         page.on('console', (msg) => console.log('PAGE LOG:', msg.text()));
         // await page.goto('http://localhost:4200/login', { timeout: 10000 });
-        await loginPage.goto();
+       
+        await page.goto('http://localhost:4200/login');
         // Check if the username input field is visible.
         // Check if the password input field is visible.
-        const usernameField = await loginPage.nameInput;
-        const passwordField = await loginPage.passwordInput;
+        const usernameField = page.locator('input[name="name"]');
+        const passwordField = page.locator('input[name="password"]');
         // Expected Result: Both the username and password input fields should be visible.
         await expect(usernameField).toBeVisible();
         await expect(passwordField).toBeVisible();
@@ -28,9 +29,7 @@ test.describe('Login Page', () => {
     }) => {
         await page.goto('http://localhost:4200/login');
 
-        const usernameField = await page
-            .locator('input[name="name"]')
-            .fill('invalid-username');
+        const usernameField = await page.locator('input[name="name"]').fill('invalid-username');
 
         // Leave the password field empty.
         // Fill in the username field.
@@ -53,8 +52,8 @@ test.describe('Login Page', () => {
     }) => {
         await page.goto('/login');
 
-        const passwordField =
-            await LoginPage.passwordInput.fill('invalid-password');
+        const passwordField = await page.locator('input[name="password"]').fill('invalid-password');
+
 
         // Leave the username field empty.
         // Fill in the password field.
@@ -98,13 +97,16 @@ test('should display error message for invalid credentials', async ({
 // Description: Ensure that the user can successfully log in with valid credentials.
 test('should successfully log in with valid credentials', async ({ page }) => {
     // Navigate to the login page.
-    const loginPage = new LoginPage(page);
+    
     await page.goto('http://localhost:4200/login');
     // Fill in the username field with a valid username.
     // Fill in the password field with a valid password.
-    const usernameField = await loginPage.nameInput.fill('tester');
-
-    const passwordField = await loginPage.passwordInput.fill('tester@123');
+    const usernameField = await page
+    .locator('input[name="name"]')
+    .fill('tester');
+const passwordField = await page
+    .locator('input[name="password"]')
+    .fill('tester@123');
     // Submit the form.
     await page.locator('button[type=login]').click();
 
